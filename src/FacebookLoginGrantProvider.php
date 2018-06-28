@@ -30,8 +30,8 @@ class FacebookLoginGrantProvider extends PassportServiceProvider
             __DIR__.'/config/facebook.php' => config_path('facebook.php'),
         ]);
 
-        Passport::tokensExpireIn(now()->addDay(\config('facebook.accessTokenExpireIn')));
-        Passport::refreshTokensExpireIn(now()->addDay(\config('facebook.refreshTokenExpireIn')));
+        Passport::tokensExpireIn(now()->addHour(\config('facebook.accessTokenExpireIn')));
+        Passport::refreshTokensExpireIn(now()->addHour(\config('facebook.refreshTokenExpireIn')));
         Passport::pruneRevokedTokens();
 
         if (file_exists(__DIR__ . '/../../../../storage/oauth-private.key')) {
